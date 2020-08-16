@@ -1,0 +1,115 @@
+@import "variables";
+
+body {
+  color: $primaryColor;
+}
+.app {
+  display: flex;
+  justify-content: center;
+}
+.container {
+  padding: 50px;
+}
+p {
+  margin-bottom: 50px;
+}
+// form related styles
+label {
+  font-weight: bold;
+  display: flex;
+  margin-bottom: 10px;
+}
+
+input[type="text"],
+input[type="email"] {
+  display: block;
+  padding: 10px;
+  border: 1px solid $colorGray;
+  border-radius: 4px;
+}
+
+button {
+  border: none;
+  height: 44px;
+  border-radius: 4px;
+  margin-right: 10px;
+  font-weight: bold;
+}
+.button {
+  &-primary {
+    color: white;
+    background-color: $secondaryColor;
+    padding: 0px 25px;
+  }
+  &-secondary {
+    color: #4a84f1;
+    background-color: white;
+    border: 1px solid $colorLightGray;
+    padding: 0px 15px;
+  }
+}
+
+.form {
+  text-align: left;
+  &-control {
+    margin-bottom: 50px;
+  }
+  &-select {
+    display: block;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    padding-right: 120px;
+    background-position-x: 190px !important;
+    background: url(./../assets/down-chevron.png) no-repeat right;
+  }
+  &-names {
+    display: flex;
+    &-first {
+      width: 33%;
+    }
+    &-last {
+      width: 33%;
+    }
+  }
+}
+
+.error {
+  color: $colorWarnError;
+  font-size: 0.7em;
+  &-input {
+    color: $colorWarnError;
+    border-color: $colorWarnError !important;
+  }
+  &-redCircle {
+    height: 12px;
+    width: 12px;
+    background-color: $colorWarnError;
+    border-radius: 50%;
+    display: inline-block;
+    top: 2px;
+    position: relative;
+    margin-right: 5px;
+  }
+}
+
+@media (max-width: $breakpoint-tablet) {
+  p {
+    text-align: center;
+  }
+
+  .form {
+    &-names {
+      display: block;
+      &-first {
+        width: 100%;
+      }
+      &-last {
+        width: 100%;
+      }
+    }
+  }
+}
