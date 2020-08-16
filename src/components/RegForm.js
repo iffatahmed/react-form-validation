@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import TextError from "./TextError";
+import Modal from "./Modal";
 
 const initialValues = {
   regnummer: "",
@@ -33,13 +34,18 @@ const validationSchema = Yup.object({
 });
 
 function RegForm() {
+  const [isOpen, setIsOpen] = useState("false");
+  const toggleModal = (event) => {
+    console.log(isOpen);
+    setIsOpen(!isOpen);
+  };
   return (
     <Formik
       initialValues={initialValues}
       validationSchema={validationSchema}
       onSubmit={onSubmit}
     >
-      <Form>
+      <Form className="form-wrapper">
         <div className="form-control">
           <label htmlFor="regnummer">Bilens regitreringsnummer</label>
           <Field
@@ -47,7 +53,7 @@ function RegForm() {
             name="regnummer"
             id="regnummer"
             placeholder="AB 12345"
-            className={ErrorMessage ? null : "error-input"}
+            className={ErrorMessage ? "small " : "small error-input"}
           />
           <ErrorMessage
             name="regnummer"
@@ -56,7 +62,15 @@ function RegForm() {
           />
         </div>
         <div className="form-control">
-          <label htmlFor="bonus">Din bonus</label>
+          <Modal show={!isOpen} onClose={toggleModal}>
+            Noen info tekst om din bonus
+          </Modal>
+          <label htmlFor="bonus">
+            Din bonus{" "}
+            <span className="info-icon" onClick={toggleModal}>
+              i
+            </span>
+          </label>
           <Field
             type="text"
             name="bonus"
@@ -80,7 +94,7 @@ function RegForm() {
             type="text"
             name="dob"
             id="dob"
-            className={ErrorMessage ? null : "error-input"}
+            className={ErrorMessage ? "small " : "small error-input"}
           />
           <ErrorMessage name="dob" className="error" component={TextError} />
         </div>
@@ -128,7 +142,7 @@ function RegForm() {
         <button type="submit" className="button-primary">
           Beregn Pris
         </button>
-        <button type="submit" className="button-secondary">
+        <button type="reset" className="button-secondary">
           Avbryt
         </button>
       </Form>

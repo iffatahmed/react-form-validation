@@ -1,18 +1,13 @@
 @import "variables";
 
-body {
-  color: $primaryColor;
-}
 .app {
   display: flex;
   justify-content: center;
 }
 .container {
-  padding: 50px;
+  padding: 45px 60px 45px 45px;
 }
-p {
-  margin-bottom: 50px;
-}
+
 // form related styles
 label {
   font-weight: bold;
@@ -23,9 +18,10 @@ label {
 input[type="text"],
 input[type="email"] {
   display: block;
-  padding: 10px;
-  border: 1px solid $colorGray;
+  padding: 0 15px;
+  border: 1px solid $colorLightGray;
   border-radius: 4px;
+  height: 44px;
 }
 
 button {
@@ -37,46 +33,85 @@ button {
 }
 .button {
   &-primary {
-    color: white;
+    color: $colorWhite;
     background-color: $secondaryColor;
     padding: 0px 25px;
   }
   &-secondary {
-    color: #4a84f1;
-    background-color: white;
+    color: $secondaryColor;
+    background-color: $colorWhite;
     border: 1px solid $colorLightGray;
     padding: 0px 15px;
   }
 }
-
+.wrapper {
+  padding: 0px 25px;
+}
 .form {
   text-align: left;
+  &-wrapper {
+    padding: 0px 20px;
+  }
   &-control {
     margin-bottom: 50px;
   }
   &-select {
     display: block;
-    padding: 10px;
-    border: 1px solid #ccc;
+    padding: 10px 10px 10px 15px;
+    border: 1px solid $colorLightGray;
     border-radius: 4px;
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
-    padding-right: 120px;
-    background-position-x: 190px !important;
-    background: url(./../assets/down-chevron.png) no-repeat right;
+    padding-right: 140px;
+    background-position-x: 245px !important;
+    background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQBAMAAADt3eJSAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAJ1BMVEUAAABJhPBJhPBKhPFKhPFJhPFKhPFLhfFLhPBKhPBKg/FKhPEAAABFvmXhAAAAC3RSTlMAi1eN+3D8XFV4cZon2BYAAAABYktHRACIBR1IAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAAB3RJTUUH5AgODBYwovWz2QAAAEtJREFUCNdjYMANGBVAJJMAg7UTiKGymSF6WwEDA4f3TgbW3ekMDC27JzCAhEACDCAhsAADw+ot3rvABrDuhggAVe2Emsm1gAEvAABF3BK7w7+RYQAAACV0RVh0ZGF0ZTpjcmVhdGUAMjAyMC0wOC0xNFQxMjoyMjo0OCswMDowMEDFge8AAAAldEVYdGRhdGU6bW9kaWZ5ADIwMjAtMDgtMTRUMTI6MjI6NDgrMDA6MDAxmDlTAAAAGXRFWHRTb2Z0d2FyZQB3d3cuaW5rc2NhcGUub3Jnm+48GgAAAABJRU5ErkJggg==)
+      no-repeat right;
+    font-size: 1.2em;
   }
   &-names {
     display: flex;
     &-first {
       width: 33%;
+      & input {
+        width: 85%;
+      }
     }
     &-last {
       width: 33%;
+      & input {
+        width: 85%;
+      }
     }
   }
 }
-
+.small {
+  width: 100px !important;
+}
+.info-icon {
+  color: $secondaryColor;
+  border: 1px solid $colorLightGray;
+  border-radius: 50%;
+  padding: 8px 13px;
+  font-size: 0.7em;
+  margin-left: 18px;
+  top: -5px;
+  position: relative;
+}
+.modal {
+  position: relative;
+  left: 100px;
+  &-button {
+    border: none;
+    padding: 3px 7px;
+    box-shadow: 1px 1px 1px 2px $colorLightGray;
+    border-radius: 4px;
+    margin-right: 10px;
+    font-weight: bold;
+    height: unset;
+    margin: 7px 0px;
+  }
+}
 .error {
   color: $colorWarnError;
   font-size: 0.7em;
@@ -99,6 +134,7 @@ button {
 @media (max-width: $breakpoint-tablet) {
   p {
     text-align: center;
+    padding: 0px 15px;
   }
 
   .form {
@@ -106,9 +142,15 @@ button {
       display: block;
       &-first {
         width: 100%;
+        & input {
+          width: 90%;
+        }
       }
       &-last {
         width: 100%;
+        & input {
+          width: 90%;
+        }
       }
     }
   }
