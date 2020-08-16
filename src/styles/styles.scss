@@ -99,8 +99,13 @@ button {
   position: relative;
 }
 .modal {
-  position: relative;
-  left: 100px;
+  position: absolute;
+  color: white;
+  transition: all 5s ease-in-out;
+  z-index: 5000;
+  background-color: $colorDarkGray;
+  padding: 30px;
+  border-radius: 4px;
   &-button {
     border: none;
     padding: 3px 7px;
@@ -110,8 +115,23 @@ button {
     font-weight: bold;
     height: unset;
     margin: 7px 0px;
+    float: right;
   }
+  z-index: 5000;
 }
+.overlay {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.7);
+  transition: opacity 500ms;
+}
+// .overlay:target {
+//   visibility: visible;
+//   opacity: 1;
+// }
 .error {
   color: $colorWarnError;
   font-size: 0.7em;

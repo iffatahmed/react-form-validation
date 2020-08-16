@@ -9,14 +9,14 @@ class Modal extends React.Component {
 
     return (
       <div>
+        <div className="overlay"></div>
         <div className="modal">
-          {this.props.children}
-
           <div>
             <button onClick={this.props.onClose} className="modal-button">
-              x
+              &times;
             </button>
           </div>
+          {this.props.children}
         </div>
       </div>
     );
